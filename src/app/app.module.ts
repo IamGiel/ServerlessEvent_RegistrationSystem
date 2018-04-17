@@ -40,10 +40,6 @@ import { HeaderComponent } from "./header/header.component";
         component: HomeComponent
       },
       {
-        path: "auth",
-        loadChildren: () => AuthModule //lazy loading
-      },
-      {
         path: "event",
         loadChildren: () => EventModule
       }
