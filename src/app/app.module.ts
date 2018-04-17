@@ -6,22 +6,22 @@ import { FormioAuthService, FormioAuthConfig } from "angular-formio/auth";
 import { AuthConfig, AppConfig } from "../config";
 import { FormioResources } from "angular-formio/resource";
 
-// import { AuthModule } from "./auth/auth.module";
-// import { EventModule } from "./event/event.module";
+import { AuthModule } from "./auth/auth.module";
+import { EventModule } from "./event/event.module";
 
 import { AppComponent } from "./app.component";
 import { GelsSampleComponent } from "./gels-sample/gels-sample.component";
 import { HomeComponent } from "./home/home.component";
 import { HeaderComponent } from "./header/header.component";
 
-export function AuthModule() {
-  var am = require("./auth/auth.module");
-  return am;
-}
-export function EventModule() {
-  var em = require("./event/event.module");
-  return em;
-}
+// export function AuthModule() {
+//   var am = require("./auth/auth.module");
+//   return am;
+// }
+// export function EventModule() {
+//   var em = require("./event/event.module");
+//   return em;
+// }
 
 @NgModule({
   declarations: [
@@ -44,11 +44,11 @@ export function EventModule() {
       },
       {
         path: "auth",
-        loadChildren: AuthModule //lazy loading
+        loadChildren: () =>AuthModule //lazy loading
       },
       {
         path: "event",
-        loadChildren: EventModule
+        loadChildren: () => EventModule
       }
     ])
   ],
